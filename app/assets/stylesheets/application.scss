@@ -10,3 +10,51 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+$bg-c: #ff9671; // Ajout du point-virgule ici
+
+h1 {
+  text-align: center;
+  background-color: $bg-c;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 15px rgba(0, 0, 0, 0.1)
+}
+
+h3 {
+  color: #4b597a;
+  margin: 30px;
+}
+
+.card {
+  border-color: #e57b89;
+  border-radius: 6px;
+}
+
+.fa-solid {
+  margin-left: 30px ;
+  margin-top: 10px;
+  font-size: 30px;
+  color: $bg-c;
+}
+
+.btn {
+  justify-content: center;
+  background-color: $bg-c;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: white;
+
+}
+.btn:hover {
+  border-color: $bg-c;
+  color: $bg-c;
+}
+
+h4 {
+  color: #4b597a;
+  font-size: 15px;
+
+}
