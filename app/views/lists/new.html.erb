@@ -1,4 +1,7 @@
-<h1>Create a New List</h1>
+<div class="header">
+  <%= image_tag "count_theapplication_themovie_3042.png", alt: "Logo", id: "logo" %>
+  <h1>Create a new list</h1>
+</div>
 
 <%= simple_form_for @list do |f| %>
   <%= f.input :name, label: 'List Name' %>

@@ -12,24 +12,69 @@
 @import "pages/index";
 
 
-$bg-c: #ff9671; // Ajout du point-virgule ici
+$bg-c: #B13948; // Ajout du point-virgule ici
+$title: #17133D;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%; 
+}
+
+body {
+  background-image: linear-gradient(to right bottom, #17133d, #161133, #140e29, #120b20, #0d0717, #0d0717, #0d0717, #0d0717, #120b20, #140e29, #161133, #17133d);}
+.header {
+  display: flex;               /* Active flexbox pour aligner les éléments horizontalement */
+  align-items: center;         /* Centre verticalement l'image et le titre */
+  justify-content: center;     /* Centre les éléments horizontalement dans le conteneur */
+  background-image: linear-gradient(to right top, #17133d, #2f153f, #43173f, #541b3e, #63213b, #6e253c, #782a3c, #82303b, #8e323e, #993542, #a53745, #b13948);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+#logo {
+  width: 50px;                /* Largeur de l'image */
+  height: 50px;               /* Hauteur de l'image */
+  margin-right: 20px;         /* Espace entre l'image et le titre */
+  margin-left: 50px;          /* Ajuste l'espace à gauche de l'image */
+}
 
 h1 {
-  text-align: center;
-  background-color: $bg-c;
+  text-align: center;         /* Centre le texte à l'intérieur du <h1> */
   color: white;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 15px rgba(0, 0, 0, 0.1)
+  margin: 0;                  /* Enlève les marges par défaut du <h1> */
+              /* Fait en sorte que le <h1> prenne tout l'espace disponible */
 }
 
 h3 {
-  color: #4b597a;
+  color: $title;
   margin: 30px;
 }
 
+h4 {
+  color: $title;
+  font-size: 15px;
+
+}
+
+.text-decoration-none {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: $bg-c;
+  font-size: 20px;
+}
+
+
 .card {
-  border-color: #e57b89;
-  border-radius: 6px;
+  border-color: $bg-c;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(171, 171, 171, 0.247), 0 6px 10px rgba(172, 172, 172, 0.1);
+  background-image: linear-gradient(to right bottom, #e1e0e3, #dddcdf, #dad9dc, #d6d5d8, #d3d2d5, #d3d2d5, #d4d3d6, #d4d3d6, #d7d7d9, #dbdbdd, #dedee0, #e2e2e3);background-image: linear-gradient(to right bottom, #e1e0e3, #dbd9dc, #d4d3d5, #ceccce, #c7c6c7, #c7c6c7, #c7c7c7, #c7c7c7, #cecece, #d4d4d5, #dbdbdc, #e2e2e3);
+
 }
 
 .fa-solid {
@@ -45,16 +90,89 @@ h3 {
   border: none;
   margin-bottom: 10px;
   border-radius: 5px;
-  color: white;
+  color: rgb(241, 236, 236);
 
 }
 .btn:hover {
+  background-color: white;
+  border: 3px;
   border-color: $bg-c;
   color: $bg-c;
+
+}
+.form-actions{
+  justify-content: center;
+  background-color: $bg-c;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: rgb(241, 236, 236);
 }
 
-h4 {
-  color: #4b597a;
-  font-size: 15px;
+.form-new {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;      /* Centre horizontalement */
+  margin: 0 auto;
+  background-color: $title;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  color: white;
 
+  .btn {
+    display: flex;          /* Active flexbox pour le bouton */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;    /* Centre verticalement */
+    text-align: center;     /* S'assure que le texte est bien centré dans le bouton */
+    padding: 10px 20px;     /* Tu peux ajuster les marges internes */
+    border: none;           /* Optionnel : si tu veux enlever les bordures */
+    background-color: $bg-c; /* Ajuste la couleur de fond comme tu le souhaites */
+    border-radius: 5px;     /* Arrondir les coins du bouton */
+    color: white;           /* Couleur du texte */
+    font-size: 16px;        /* Ajuste la taille du texte */
+  }
+
+  .btn:hover {
+    background-color: white;
+    border: 3px;
+    border-color: $bg-c;
+    color: $bg-c;
+
+  }
+}
+
+.card {
+  position: relative; /* Permet de positionner les éléments enfants de manière absolue */
+  border-color: $bg-c;
+  border-radius: 6px;
+}
+
+.card {
+  position: relative; /* Permet de positionner les éléments enfants (le bouton "X") de manière absolue */
+  border-color: $bg-c;
+  border-radius: 6px;
+  padding: 20px; /* Pour s'assurer que les éléments à l'intérieur ont de l'espace */
+}
+
+.btn-delete {
+  position: absolute;  /* Permet de positionner le bouton par rapport à la carte */
+  top: 10px;           /* Décale le bouton de 10px du bord supérieur de la carte */
+  right: 10px;         /* Décale le bouton de 10px du bord droit de la carte */
+  width: 30px;         /* Largeur du bouton */
+  height: 30px;        /* Hauteur du bouton */
+  text-decoration: none;
+  color: $bg-c;        /* Couleur du texte */
+  border-radius: 50%;  /* Forme circulaire pour le bouton */
+  font-size: 16px;     /* Taille du texte */
+  display: flex;       /* Flexbox pour centrer le texte à l'intérieur du bouton */
+  justify-content: center;  /* Centre le texte horizontalement */
+  align-items: center;     /* Centre le texte verticalement */
+  text-align: center;
+  z-index: 1;          /* S'assure que le bouton soit au-dessus des autres éléments */
+}
+
+.btn-delete:hover {
+  color: $title;
 }

@@ -1,25 +1,46 @@
-<h1><%= @list.name %></h1>
+<div class="header">
+  <%= image_tag "count_theapplication_themovie_3042.png", alt: "Logo", id: "logo" %>
+  <h1><%= @list.name %></h1>
+</div>
+
+<body>
+
+
 
 <%= link_to lists_path do %>
   <i class="fa-solid fa-arrow-left"></i>
 <% end %>
-<h3>🗒️ Movies in this list:</h3>
+
 <div class="container">
   <div class="row">
     <% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+
       <div class="col-md-6 mb-4">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= movie.title %></h5>
             <p class="card-text">Rating: <%= movie.rating %>⭐</p>
-            <h4><%= bookmark.comment %></h4>
+            <h4><%= bookmark.comment if bookmark %></h4>
+
+            <!-- Vérifie si le bookmark existe avant d'afficher le lien -->
+            <% if bookmark %>
+              <p class="card-delete">
+                <strong>Comment:</strong> <%= bookmark.comment %>
+                <%= link_to "X",
+                            list_bookmark_path(@list, bookmark),
+                            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                            class: "btn-delete" %>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>
 <div class="d-flex justify-content-center">
 <%= link_to 'Add a Bookmark', new_list_bookmark_path(@list), class: 'btn' %>
 </div>
+</div>
+
+</body>
