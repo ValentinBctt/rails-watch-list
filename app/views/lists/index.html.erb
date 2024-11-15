@@ -2,26 +2,46 @@
   <%= image_tag "count_theapplication_themovie_3042.png", alt: "Logo", id: "logo" %>
   <h1>All Lists</h1>
 </div>
-<body>
-<div class="container">
-  <div class="row">
-    <% @lists.each_with_index do |list, index| %>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 rounded"> <!-- Ajout de la classe 'rounded' -->
-          <div class="card-body">   <h5 class="card-title"><%= link_to list.name, list_path(list), class: 'text-decoration-none' %></h5>
-          </div>
-          <div class="text-center">
-            <%= link_to 'View', list_path(list), class: 'btn btn-primary' %>
-          </div>
-        </div>
-      </div>
 
-      <%# Crée une nouvelle ligne après chaque 3 cartes %>
-      <% if (index + 1) % 3 == 0 %>
+<body>
+  <div class="container">
+    <!-- Bouton "Create a List" -->
+    <div class="row mb-4">
+      <!-- Tu peux ajouter ici d'autres éléments comme un bouton ou autre -->
+    </div>
+
+    <!-- Affichage des listes -->
+    <div class="row">
+      <% @lists.each_with_index do |list, index| %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 rounded">
+            <!-- Espace pour l'image -->
+            <div class="card-img-top">
+              <%= image_tag list.image.variant(resize_to_limit: [300, 300]) if list.image.attached? %>
+
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= link_to list.name, list_path(list), class: 'text-decoration-none' %>
+              </h5>
+            </div>
+            <div class="text-center">
+              <%= link_to 'View', list_path(list), class: 'btn btn-primary' %>
+            </div>
+          </div>
         </div>
-        <div class="row">
+
+        <%# Crée une nouvelle ligne après chaque 3 cartes %>
+        <% if (index + 1) % 3 == 0 %>
+          </div>
+          <div class="row">
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+  <div class="col-12 text-center">
+    <%= link_to 'Create a List', new_list_path, class: 'btn btn-success' %>
+  </div>
 </body>
