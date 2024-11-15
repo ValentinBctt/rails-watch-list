@@ -31,14 +31,25 @@ body {
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
+
+
+
+  #logo {
+    width: 50px;                /* Largeur de l'image */
+    height: 50px;               /* Hauteur de l'image */
+    margin-right: 20px;         /* Espace entre l'image et le titre */
+    margin-left: 50px;          /* Ajuste l'espace à gauche de l'image */
+  }
 }
 
-#logo {
-  width: 50px;                /* Largeur de l'image */
-  height: 50px;               /* Hauteur de l'image */
-  margin-right: 20px;         /* Espace entre l'image et le titre */
-  margin-left: 50px;          /* Ajuste l'espace à gauche de l'image */
+#cine {
+  width: 100%; // L'image occupe toute la largeur de l'écran
+  height: 60vh; // La hauteur est de 60% de la hauteur de l'écran
+  object-fit: cover; // Rogne l'image pour remplir la zone tout en gardant le ratio d'aspect
+  display: block; // S'assure que l'image prend l'espace défini
+  object-position: center top,
 }
+
 
 h1 {
   text-align: center;         /* Centre le texte à l'intérieur du <h1> */
@@ -144,6 +155,7 @@ h4 {
 
 
 }
+
 
 .card {
   position: relative; /* Permet de positionner les éléments enfants de manière absolue */
